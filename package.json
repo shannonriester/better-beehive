@@ -60,5 +60,16 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shannonriester/better-beehive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/shannonriester/better-beehive/issues"
+  },
+  "homepage": "https://github.com/shannonriester/better-beehive#readme"
 }

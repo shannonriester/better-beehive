@@ -2,11 +2,17 @@ import React from 'react';
 import {browserHistory, Link} from 'react-router';
 
 const Hero = React.createClass({
+  handleChange(e) {
+    console.log('id', e.target.id);
+  },
   searchHandler: function (e) {
     e.preventDefault();
     // console.dir(document.getElementById('business-type').label);
-    let businessType = document.querySelector('.search-field:checked').value;
-    browserHistory.push(`/search/type=${businessType}`);
+    console.log('this.refs.medical', this.refs.medical);
+    console.log('this.refs.social', this.refs.social);
+    console.log('this.refs.school', this.refs.school);
+    // let businessType = document.querySelector('.search-field:checked').value;
+    // browserHistory.push(`/search/type=${businessType}`);
   },
   render: function () {
     return (
@@ -21,7 +27,17 @@ const Hero = React.createClass({
           <input className="search-field" type="checkbox" id="medical" value="medical"/><label>Medical</label>
           <input className="search-field" type="checkbox" id="social" value="social"/><label>Social</label>
           <input className="search-field" type="checkbox" id="school" value="school"/><label>School</label>
-          <button>Submit</button>
+
+          <input type='text' list='business-type'/>
+
+          <select id='business-type' ref='type' onChange={this.handleChange}>
+            this is where we need to be
+            <option>Search</option>
+            <option  ref="medical" id="0" value='Medical'>Med</option>
+            <option  ref="social" id="1" value='Social'>Soc</option>
+            <option ref="school" id="2" value='School'>School</option>
+          </select>
+          <button onClick={this.searchHandler}>Submit</button>
         </form>
       </section>
     )
@@ -29,10 +45,3 @@ const Hero = React.createClass({
 });
 
 export default Hero;
-
-// <input type='text' list='business-type'/>
-// <datalist id='business-type' ref='type'>
-//   <option label='medical' ref="0" id="0" value='Medical'/>
-//   <option label='social' ref="1" id="1" value='Social'/>
-//   <option label='school' ref="2" id="2" value='School'/>
-// </datalist>
